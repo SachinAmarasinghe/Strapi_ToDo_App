@@ -1,0 +1,142 @@
+// @import './_reset'
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap')
+
+$body_font: 'Inconsolata', monospace
+$heading_font: 'Karla', sans-serif
+
+// global styles 
+html,body
+    font-size: 16px
+    font-family: $body_font
+
+//text styles
+h1,h2,h3,h4,h5,h6
+    font-family: $heading_font
+
+h1
+    font-size: 48px
+    font-weight: 600
+    line-height: 52px
+    margin-bottom: 10px
+
+h2
+    font-size: 32px
+    font-weight: 600
+    line-height: 40px
+    margin-bottom: 10px
+p
+    font-size: 16px
+
+.capitalize
+    text-transform: capitalize
+
+// colors 
+$bg: "#fbfbfb"
+$primary: #000000
+$secondary: #A8D1D1
+$accent: #F1F7B5
+
+//form input styles
+input[type=text],input[type=password],input[type=email]
+    height: 40px
+    min-width: 70px
+    width: 100%
+    border: 1px solid $primary
+    border-radius: 0px
+    padding: 2px 10px
+    &:focus,&:focus-visible
+        outline: none
+        border-color: $primary
+        border-width: 2px
+
+input[type=checkbox]
+    display: inline-block
+    border: 1px solid $primary
+    height: 20px
+    width: 20px
+
+.form_input
+    margin-bottom: 15px
+    label
+        display: block
+        font-size: 14px
+        margin-bottom: 4px
+
+// button styles
+.btn
+    height: 40px
+    min-width: 100px
+    padding: 5px 20px
+    font-size: 16px
+    font-family: $heading_font
+    font-weight: 500
+    white-space: nowrap
+    display: inline-block
+    &:hover
+        cursor: pointer
+    &-primary
+        background-color: $primary
+        border: 1px solid $primary
+        color: #fff
+        &:hover
+            background-color: lighten($primary,20% )
+    &-outline
+        background-color: #ffffff
+        border: 1px solid $primary
+        color: $primary
+        &:hover
+            background-color: $primary
+            color: #ffffff
+
+// Login styles 
+
+.login
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background-color: $bg
+    height: 100vh
+    &_form
+        padding: 20px 0
+        min-width: 400px
+        display: flex
+        flex-direction: column
+        .btn-primary
+            margin-top: 20px
+
+// Todo page styles
+.todo-page
+    padding: 20px
+    max-width: 1200px
+    margin: 0 auto
+    &_header
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &_content
+        display: flex
+        flex-direction: column
+        align-items: center
+        .add-todo-form
+            display: flex
+            align-items: flex-start
+            justify-content: center
+            input
+                border: 0
+                border-bottom: 1px solid $primary
+    .todo-list
+        &_item
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            padding: 20px 10px
+            border: 1px solid $primary
+            border-radius: 5px
+            margin-bottom: 10px
+            span
+                margin: 0 20px 0 0
+            h2
+                margin: 0 20px
+            input
+                margin-left: auto
