@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { setAuthToken } from './setAuthToken';
+import { Button, Card, Col, Form, Input, Row } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [errorMsg, setErrorMsg] = useState([]);
@@ -36,23 +38,34 @@ const Login = () => {
     };
 
     return (
-        <div className='login'>
-            <div>{errorMsg.name}</div>
-            <h1>TaskTrakr</h1>
-            <form className="login_form" onSubmit={handleSubmit}>
-                <div className='form_input'>
-                    <label htmlFor="email-address">Email / Username</label>
-                    <input id="email-address" name="email" type="email" required placeholder="Email / Username" value={email} onChange={event => setEmail(event.target.value)} />
-                </div>
-                <div className='form_input'>
-                    <label htmlFor="password">Password</label>
-                    <input id="password" name="password" type="password" required placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
-                </div>
+        <div>
+            <Row justify="center">
+                <Col span={6}>
+                    <div>{errorMsg.name}</div>
+                    <h1>TaskTrakr</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col span={6} offset={9}>
+                    <Card>
+                        <Form layout='vertical' onSubmit={handleSubmit} >
 
-                <button className='btn btn-primary' type="submit" >
-                    Sign in
-                </button>
-            </form>
+                            <Form.Item label='Email / Username' name='email'>
+                                <Input id="email-address" required placeholder="Email / Username" value={email} onChange={event => setEmail(event.target.value)} />
+                            </Form.Item>
+
+                            <Form.Item label="Password" name="password">
+                                <Input id="password" type="password" required placeholder="Password" value={password} onChange={event => setPassword(event.target.value)} />
+                            </Form.Item>
+                            <Form.Item>
+                                <Button type="primary" htmlType="submit" block>
+                                    Sign in
+                                </Button>
+                            </Form.Item>
+                        </Form>
+                    </Card>
+                </Col>
+            </Row>
         </div>
     )
 }
